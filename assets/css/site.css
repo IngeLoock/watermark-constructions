@@ -86,7 +86,7 @@ header.scrolled .nav{padding:8px 40px}
 .nav>ul a:hover,.nav>ul>li.active>a{color:var(--stone)}
 .nav>ul>li>a svg{width:10px;height:10px;opacity:.8}
 .nav .sub{position:absolute;top:100%;left:-18px;min-width:220px;background:var(--green-dark);border-radius:12px;padding:10px;opacity:0;visibility:hidden;transform:translateY(8px);transition:.22s;box-shadow:0 14px 34px rgba(28,38,32,.35)}
-.nav>ul>li:hover .sub,.nav>ul>li:focus-within .sub{opacity:1;visibility:visible;transform:none}
+.nav>ul>li:hover .sub,.nav>ul>li:focus-within .sub,.nav>ul>li.open .sub{opacity:1;visibility:visible;transform:none}
 .nav .sub a{display:block;padding:10px 14px;border-radius:8px;font-size:.88rem}
 .nav .sub a:hover{background:var(--green);color:var(--white)}
 .nav .pill{background:var(--olive);color:var(--white);padding:10px 20px;font-size:.88rem}
@@ -100,7 +100,8 @@ header.scrolled .nav{padding:8px 40px}
 .mobile-menu{position:fixed;inset:0;top:0;background:var(--green-dark);z-index:49;padding:96px 28px 40px;display:none;flex-direction:column;overflow-y:auto}
 .mobile-menu.open{display:flex}
 .mobile-menu a{color:var(--white);font-family:'Nohemi','Geist',sans-serif;font-size:1.6rem;padding:12px 0;border-bottom:1px solid rgba(160,162,145,.2);display:block}
-.mobile-menu .group{margin-bottom:10px}
+.mobile-menu .group{margin-bottom:4px}
+.mobile-menu>a+a,.mobile-menu .group+a{margin-top:0}
 .mobile-menu .group>span{display:block;color:var(--taupe);font-size:.8rem;letter-spacing:2px;text-transform:uppercase;margin:22px 0 4px}
 .mobile-menu .group a{font-size:1.15rem;padding:10px 0;font-family:'Geist',sans-serif;font-weight:500}
 .mobile-menu .pill{margin-top:28px;align-self:flex-start;background:var(--stone);color:var(--green)}

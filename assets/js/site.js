@@ -15,6 +15,16 @@
     menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.classList.remove('open');document.body.classList.remove('menu-open')}));
   }
 
+  /* dropdowns: tap to open on touch devices, hover on desktop */
+  const coarse=matchMedia('(hover: none)').matches;
+  document.querySelectorAll('.nav>ul>li.has-sub>a').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const li=a.parentElement;
+      if(coarse&&!li.classList.contains('open')){e.preventDefault();document.querySelectorAll('.nav>ul>li.open').forEach(x=>x.classList.remove('open'));li.classList.add('open')}
+    });
+  });
+  document.addEventListener('click',e=>{if(!e.target.closest('.nav>ul>li.has-sub'))document.querySelectorAll('.nav>ul>li.open').forEach(x=>x.classList.remove('open'))});
+
   /* hero headline line reveal */
   setTimeout(()=>{document.querySelectorAll('h1').forEach(h=>h.classList.add('go'))},150);
 
