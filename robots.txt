@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+# Staging only. At launch replace with robots.production.txt
