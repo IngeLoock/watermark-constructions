@@ -475,6 +475,7 @@ body.menu-open{overflow:hidden}
 .nav .sub a:hover{background:var(--green);color:var(--white)}
 .mobile-menu .group{margin-bottom:4px}
 @media(max-width:760px){.nav ul{display:none}.nav .pill{display:none}.burger{display:flex}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}.form-done{max-width:820px;margin:56px auto 0;padding:34px 32px;border-radius:14px;background:var(--white);color:var(--ink)}.form-done h3{font-size:1.5rem;color:var(--green);margin-bottom:10px}.form-done p{color:#4a564e}.form-done a{color:var(--green);font-weight:600;text-decoration:underline}.form-done .preview-note{margin-top:14px;font-size:.85rem}a.scard{color:inherit;text-decoration:none;display:flex}.about-link::after{content:"";position:absolute;inset:0}.about-hero .about-inner a:not(.about-link){position:relative;z-index:2}
 </style>
 <div class="shell" id="main" style="position:relative">
 
@@ -580,7 +581,7 @@ body.menu-open{overflow:hidden}
       <p>Watermark Constructions is a family owned business, founded in 2000. We take pride in having produced exceptional building outcomes and services to over 65,000 Australian homes and businesses in that time.</p>
     </div>
     <div class="scards">
-      <div class="scard">
+      <a class="scard" href="who-we-are.html">
         <div class="top">
           <h3>Founded</h3>
           <div class="avatars">
@@ -594,8 +595,8 @@ body.menu-open{overflow:hidden}
           <div class="bignum" data-count="2000" data-nogroup="1">0</div>
           <p class="scap">Founded on the Sunshine Coast in 2000.</p>
         </div>
-      </div>
-      <div class="scard">
+      </a>
+      <a class="scard" href="who-we-are.html">
         <div class="top">
           <h3>Projects delivered</h3>
           <img class="deco-shape" src="assets/img/deco-shape.svg" alt="">
@@ -604,17 +605,17 @@ body.menu-open{overflow:hidden}
           <div class="bignum"><span data-count="65000">0</span>+</div>
           <p class="scap">Australian homes and businesses since 2000.</p>
         </div>
-      </div>
-      <div class="scard">
+      </a>
+      <a class="scard" href="who-we-are.html">
         <div class="top">
           <h3>Years of service</h3>
           <img class="deco-wm" src="assets/img/deco-wm.svg" alt="">
         </div>
         <div class="bottom">
-          <div class="bignum" data-count="25">0</div>
-          <p class="scap">Successfully servicing Queensland and Tasmania.</p>
+          <div class="bignum"><span data-count="25">0</span>+</div>
+          <p class="scap">Servicing Queensland, New South Wales and Tasmania.</p>
         </div>
-      </div>
+      </a>
     </div>
   </section>
 
@@ -623,7 +624,7 @@ body.menu-open{overflow:hidden}
       <div class="label" style="color:var(--stone)">About us</div>
       <h2>Who we are as a <span class="accent-word">business,</span><br>is who we are as <span class="accent-word">people.</span></h2>
       <p class="about-sub">We strive to be a valued and welcome extension to every organisation, community, and customer we engage.</p>
-      <a class="pill-hero" href="team.html" style="margin-top:28px">Meet Our Team
+      <a class="pill-hero about-link" href="who-we-are.html" style="margin-top:28px">Who We Are
         <span class="arr"><svg viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H4M12 2v8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>
       </a>
     </div>
@@ -792,24 +793,22 @@ body.menu-open{overflow:hidden}
       <div class="label" style="text-align:center;color:var(--taupe)">Get in Contact</div>
       <h2 style="text-align:center;color:var(--stone);margin-top:10px">We're here when you need us!</h2>
       <p class="contact-sub">Call us on <a class="phone-em" href="tel:1300377792">1300 377 792</a> or send us a message and the team will get back to you.</p>
-      <form class="bigform" onsubmit="return false">
-        <input type="text" placeholder="Full name">
+      <form class="bigform" action="#" method="post" data-endpoint="" data-notify="admin@watermarkconstructions.com.au">
+        <label class="sr" for="h-name">Full name</label><input id="h-name" name="name" type="text" placeholder="Full name" autocomplete="name" required>
         <div class="f2">
-          <input type="email" placeholder="Email address">
-          <input type="tel" placeholder="Phone number">
+          <div><label class="sr" for="h-email">Email address</label><input id="h-email" name="email" type="email" placeholder="Email address" autocomplete="email" required></div>
+          <div><label class="sr" for="h-phone">Phone number</label><input id="h-phone" name="phone" type="tel" placeholder="Phone number" autocomplete="tel"></div>
         </div>
-        <div class="f2">
-          <select>
-            <option>Select service</option>
-            <option>Insurance Repair</option>
-            <option>Aged Care</option>
-            <option>Commercial</option>
-            <option>General enquiry</option>
-          </select>
-          <input type="text" placeholder="Preferred date and time">
-        </div>
-        <textarea placeholder="Message"></textarea>
-        <button class="fsubmit">Send Message</button>
+        <label class="sr" for="h-service">Enquiry type</label>
+        <select id="h-service" name="service">
+          <option>Insurance Repair</option>
+          <option>Aged Care</option>
+          <option>Commercial</option>
+          <option>Careers</option>
+          <option>General enquiry</option>
+        </select>
+        <label class="sr" for="h-msg">Message</label><textarea id="h-msg" name="message" placeholder="Tell us a little about your project or claim"></textarea>
+        <button class="fsubmit" type="submit">Send Message</button>
       </form>
     </div>
   </section>
@@ -943,5 +942,6 @@ document.querySelectorAll('.nav>ul>li.has-sub>a').forEach(a=>{a.addEventListener
 document.addEventListener('click',e=>{if(!e.target.closest('.nav>ul>li.has-sub'))document.querySelectorAll('.nav>ul>li.open').forEach(x=>x.classList.remove('open'))});
 </script>
 
+<script src="assets/js/forms.js"></script>
 <div class="callbar"><a class="call" href="tel:1300377792">Call 1300 377 792</a><a class="enq" href="contact.html">Enquire</a></div>
 </body></html>
