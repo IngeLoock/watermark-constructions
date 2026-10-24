@@ -2,6 +2,15 @@
    Set data-endpoint on a form (Formspree URL, WordPress REST route, etc.) to send for real.
    With no endpoint the form runs in preview mode: it shows the thank you state and sends nothing. */
 (function(){
+  var map={insurance:'Insurance Repair',aged:'Aged Care',commercial:'Commercial',careers:'Careers'};
+  var sel=document.querySelector('form.bigform select[name=service]');
+  var t=new URLSearchParams(location.search).get('type');
+  if(sel&&t&&map[t]){sel.value=map[t]}
+  if(sel){
+    var ins=sel.form.querySelector('.ins-fields');
+    var tog=function(){if(ins)ins.style.display=sel.value==='Insurance Repair'?'':'none'};
+    sel.addEventListener('change',tog);tog();
+  }
   document.querySelectorAll('form.bigform').forEach(function(form){
     var hp=document.createElement('input');
     hp.type='text';hp.name='company_website';hp.tabIndex=-1;hp.autocomplete='off';hp.className='hp';hp.setAttribute('aria-hidden','true');
