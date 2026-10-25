@@ -518,3 +518,29 @@ a.scard{color:inherit;text-decoration:none}
 .mpost .date,.mfeature .date{display:block;font-size:.8rem;color:var(--taupe-text);margin-top:12px;font-weight:600}
 @media(max-width:1000px){.leaders{grid-template-columns:1fr}}
 @media(max-width:760px){.leader{grid-template-columns:110px 1fr;gap:16px;padding:12px 16px 12px 12px}.leader img{height:150px}}
+
+/* ---------- batch 4: balanced headings, icon row, crops ---------- */
+h1,h2,h3{text-wrap:balance}
+.fcard .icorow{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.fcard .icorow .idx{font-size:.95rem;letter-spacing:2px}
+@media(min-width:900px){
+  .page-hero h1{max-width:none}
+  .page-hero h1 .lm .li{white-space:nowrap}
+}
+.sec-head h2{max-width:15em}
+@media(min-width:900px){
+  .split h2{font-size:clamp(1.9rem,3vw,2.7rem)}
+  .split > div:first-child{min-width:0}
+}
+@media(max-width:600px){
+  h2{font-size:1.85rem}
+  .page-hero h1{font-size:1.95rem}
+  .page-hero h1 .lm .li{text-wrap:balance}
+}
+@media(min-width:900px){.split h2{font-size:clamp(1.8rem,2.6vw,2.4rem)}}
+/* head-safe crops */
+img[src*="svc-aged-care"]{object-position:50% 42%}
+img[src*="svc-insurance"]{object-position:50% 10%}
+.svc-link img[src*="svc-aged-care"]{object-position:50% 42%!important}
+.svc-link img[src*="svc-insurance"]{object-position:50% 10%!important}
+.vblock .vphoto img{aspect-ratio:4/3}
