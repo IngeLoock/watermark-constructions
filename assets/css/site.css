@@ -544,3 +544,25 @@ img[src*="svc-insurance"]{object-position:50% 10%}
 .svc-link img[src*="svc-aged-care"]{object-position:50% 42%!important}
 .svc-link img[src*="svc-insurance"]{object-position:50% 10%!important}
 .vblock .vphoto img{aspect-ratio:4/3}
+
+/* ---------- batch 5: tidy footer ---------- */
+.footer-card .foot-bg{right:-2%;bottom:auto;top:24px;width:24%;opacity:.055}
+.footer-card .foot-grid{grid-template-columns:1.5fr .85fr .85fr .85fr 1.5fr;gap:40px;padding-bottom:48px;text-align:left;justify-items:stretch}
+.footer-card .foot-grid ul{list-style:none;padding:0}
+.footer-card .foot-grid>div{max-width:none}
+.footer-card .foot-brand p{max-width:300px}
+.footer-card .foot-contact a{word-break:break-word}
+.footer-card .foot-bottom{display:block;border-top:1px solid rgba(160,162,145,.2);padding:20px 0 28px}
+.footer-card .foot-bottom .ack{border:0;padding:0;margin:0 0 12px;font-size:.8rem;color:var(--taupe)}
+.footer-card .foot-legal{display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;font-size:.76rem}
+@media(max-width:900px){
+  .footer-card .foot-grid{grid-template-columns:1fr 1fr!important;gap:30px 24px;text-align:left;justify-items:stretch}
+  .footer-card .foot-brand,.footer-card .foot-contact,.footer-card .foot-offices{grid-column:1/-1}
+  .footer-card .foot-offices ul{columns:2;column-gap:24px}
+  .footer-card .foot-brand{text-align:left}
+  .footer-card .foot-grid img{margin-left:0;margin-right:0}
+  .footer-card .foot-grid p{margin-left:0;margin-right:0}
+  .footer-card .foot-bottom{text-align:left;align-items:flex-start;padding:18px 0 30px}
+  .footer-card .foot-legal{flex-direction:column;gap:8px}
+  .footer-card .foot-bg{width:60%;top:auto;bottom:-4%;right:-12%}
+}
