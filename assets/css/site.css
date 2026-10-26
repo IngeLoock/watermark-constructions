@@ -581,3 +581,6 @@ img[src*="svc-insurance"]{object-position:50% 10%}
 /* footer brand mark: large, cropped off the top right */
 .footer-card .foot-bg{left:auto;right:-6%;top:-17%;bottom:auto;width:56%;opacity:.07}
 @media(max-width:900px){.footer-card .foot-bg{left:auto;right:-28%;top:-30px;bottom:auto;width:115%;opacity:.07}}
+/* footer: Starlight supporter logo under the address */
+.footer-card .foot-starlight{display:block;width:150px;height:auto;margin-top:22px;opacity:.95}
+@media(max-width:900px){.footer-card .foot-starlight{width:140px;margin-top:18px}}
