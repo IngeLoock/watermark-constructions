@@ -570,3 +570,11 @@ img[src*="svc-insurance"]{object-position:50% 10%}
 :root{--hl:#527a44;--hl-dark:#b4cf98}
 .hl{color:var(--hl)}
 .page-hero .hl,.hero-card .hl,.about-hero .hl,.cta-band .hl,.quote-band .hl,.bg-dark .hl,.bg-green .hl,.footer-card .hl,.office.hq .hl{color:var(--hl-dark)}
+/* who we are hero: keep the crew member's head clear of the headline */
+@media(max-width:760px){.bg-ute{background-size:auto 166%!important;background-position:25% 100%!important}}
+/* brand mark: bleeds off the top left corner instead of bottom right */
+.cta-band .bgmark{right:auto;bottom:auto;left:-4%;top:-20%}
+.footer-card .foot-bg{right:auto;left:-3%;top:-6%;bottom:auto;width:28%;opacity:.06}
+@media(max-width:900px){.footer-card .foot-bg{left:-14%;right:auto;top:-3%;bottom:auto;width:62%}}
+
+#contact .hl{color:var(--hl-dark)}
