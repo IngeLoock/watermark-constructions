@@ -566,3 +566,7 @@ img[src*="svc-insurance"]{object-position:50% 10%}
   .footer-card .foot-legal{flex-direction:column;gap:8px}
   .footer-card .foot-bg{width:60%;top:auto;bottom:-4%;right:-12%}
 }
+/* headline highlight */
+:root{--hl:#527a44;--hl-dark:#b4cf98}
+.hl{color:var(--hl)}
+.page-hero .hl,.hero-card .hl,.about-hero .hl,.cta-band .hl,.quote-band .hl,.bg-dark .hl,.bg-green .hl,.footer-card .hl,.office.hq .hl{color:var(--hl-dark)}
