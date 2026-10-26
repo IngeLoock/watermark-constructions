@@ -518,6 +518,22 @@ body.menu-open{overflow:hidden}
 @media(max-width:900px){.footer-card .foot-starlight{width:140px;margin-top:18px}}
 /* headline highlight: brand palette only (olive on light, taupe on dark) */
 :root{--hl:var(--olive);--hl-dark:var(--taupe)}
+/* media hero: photo sits to the right so all four faces stay visible, text on brand green */
+.page-hero.hero-split{min-height:600px}
+.page-hero.hero-split .bg{background-size:auto 100%;background-position:right center;background-repeat:no-repeat;background-color:var(--green-dark)}
+.page-hero.hero-split .bg::after{background:linear-gradient(90deg,var(--green-dark) 0%,var(--green-dark) 36%,rgba(34,51,42,.55) 52%,rgba(34,51,42,0) 68%),linear-gradient(180deg,rgba(28,38,32,.35) 0%,rgba(28,38,32,0) 30%,rgba(28,38,32,.35) 100%)}
+.page-hero.hero-split h1{font-size:clamp(2.4rem,4.2vw,3.7rem)}
+@media(max-width:760px){
+  .page-hero.hero-split{min-height:0;display:block}
+  .page-hero.hero-split .bg{inset:auto;top:70px;left:0;right:0;height:75vw;background-size:cover;background-position:center}
+  .page-hero.hero-split .bg::after{background:linear-gradient(180deg,rgba(28,38,32,0) 55%,var(--green-dark) 100%)}
+  .page-hero.hero-split .inner-wide{padding-top:calc(75vw + 84px);padding-bottom:40px}
+}
+/* batch 6: one-line heading on desktop */
+@media(min-width:1000px){h2.nowrap-d,.sec-top h2.nowrap-d{white-space:nowrap;max-width:none;text-wrap:nowrap}}
+.footer-card .foot-brand p{max-width:300px}
+.footer-card .foot-brand img{width:267px;max-width:100%;height:auto}
+.footer-card .foot-contact .ph-for{display:block;margin-top:3px;font-size:.78rem;letter-spacing:.02em;color:var(--taupe);opacity:.85}
 </style>
 <div class="shell" id="main" style="position:relative">
 
@@ -862,7 +878,7 @@ body.menu-open{overflow:hidden}
   <img class="foot-bg" src="assets/img/deco-wm.svg" alt="">
   <div class="foot-grid">
     <div class="foot-brand">
-      <img src="assets/img/logo.svg" alt="Watermark Constructions" style="height:42px;margin-bottom:18px">
+      <img src="assets/img/logo.svg" alt="Watermark Constructions" style="width:267px;height:auto;margin-bottom:18px">
       <p>Family owned since 2000. Building what matters to you across Queensland, New South Wales and Tasmania.</p>
     </div>
     <div>
@@ -892,8 +908,8 @@ body.menu-open{overflow:hidden}
     <div class="foot-contact">
       <h4>Contact</h4>
       <ul>
-        <li><a href="tel:1300377792">1300 377 792</a></li>
-        <li><a href="tel:0754377792">07 5437 7792</a></li>
+        <li><a href="tel:1300377792">1300 377 792</a><small class="ph-for">24/7 claims &amp; emergency line</small></li>
+        <li><a href="tel:0754377792">07 5437 7792</a><small class="ph-for">Head office, Sunshine Coast</small></li>
         <li><a href="mailto:admin@watermarkconstructions.com.au">admin@watermarkconstructions.com.au</a></li>
         <li>4/29 Premier Cct, Warana QLD 4575</li>
         <li>PO Box 799, Mooloolaba QLD 4557</li>

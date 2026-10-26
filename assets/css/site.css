@@ -483,7 +483,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .page-hero .inner-wide>p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
   .page-hero .btn-row a:nth-child(2){display:none}
 }
-@media(max-width:760px){.map-wrap svg text{font-size:30px}.map-wrap svg text[letter-spacing]{font-size:17px}}
+@media(max-width:760px){.map-wrap svg text{font-size:32px}.map-wrap svg text[letter-spacing]{font-size:19px}}
 /* forms: labels, honeypot, thank you state */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .hp{position:absolute!important;left:-9999px;width:1px;height:1px;opacity:0}
@@ -539,9 +539,9 @@ h1,h2,h3{text-wrap:balance}
 }
 @media(min-width:900px){.split h2{font-size:clamp(1.8rem,2.6vw,2.4rem)}}
 /* head-safe crops */
-img[src*="svc-aged-care"]{object-position:50% 42%}
+img[src*="svc-aged-care"]{object-position:47% 20%}
 img[src*="svc-insurance"]{object-position:50% 10%}
-.svc-link img[src*="svc-aged-care"]{object-position:50% 42%!important}
+.svc-link img[src*="svc-aged-care"]{object-position:47% 20%!important}
 .svc-link img[src*="svc-insurance"]{object-position:50% 10%!important}
 .vblock .vphoto img{aspect-ratio:4/3}
 
@@ -586,3 +586,19 @@ img[src*="svc-insurance"]{object-position:50% 10%}
 @media(max-width:900px){.footer-card .foot-starlight{width:140px;margin-top:18px}}
 /* headline highlight: brand palette only (olive on light, taupe on dark) */
 :root{--hl:var(--olive);--hl-dark:var(--taupe)}
+/* media hero: photo sits to the right so all four faces stay visible, text on brand green */
+.page-hero.hero-split{min-height:600px}
+.page-hero.hero-split .bg{background-size:auto 100%;background-position:right center;background-repeat:no-repeat;background-color:var(--green-dark)}
+.page-hero.hero-split .bg::after{background:linear-gradient(90deg,var(--green-dark) 0%,var(--green-dark) 36%,rgba(34,51,42,.55) 52%,rgba(34,51,42,0) 68%),linear-gradient(180deg,rgba(28,38,32,.35) 0%,rgba(28,38,32,0) 30%,rgba(28,38,32,.35) 100%)}
+.page-hero.hero-split h1{font-size:clamp(2.4rem,4.2vw,3.7rem)}
+@media(max-width:760px){
+  .page-hero.hero-split{min-height:0;display:block}
+  .page-hero.hero-split .bg{inset:auto;top:70px;left:0;right:0;height:75vw;background-size:cover;background-position:center}
+  .page-hero.hero-split .bg::after{background:linear-gradient(180deg,rgba(28,38,32,0) 55%,var(--green-dark) 100%)}
+  .page-hero.hero-split .inner-wide{padding-top:calc(75vw + 84px);padding-bottom:40px}
+}
+/* batch 6: one-line heading on desktop */
+@media(min-width:1000px){h2.nowrap-d,.sec-top h2.nowrap-d{white-space:nowrap;max-width:none;text-wrap:nowrap}}
+.footer-card .foot-brand p{max-width:300px}
+.footer-card .foot-brand img{width:267px;max-width:100%;height:auto}
+.footer-card .foot-contact .ph-for{display:block;margin-top:3px;font-size:.78rem;letter-spacing:.02em;color:var(--taupe);opacity:.85}
