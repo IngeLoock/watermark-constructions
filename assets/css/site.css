@@ -133,7 +133,7 @@ h1.go .lm:nth-child(3) .li{transition-delay:.32s}
 .marquee{background:var(--green-dark);padding:14px 0;overflow:hidden;white-space:nowrap}
 .marquee-track{display:inline-block;animation:mq 38s linear infinite}
 .marquee span{font-family:'Nohemi','Geist',sans-serif;font-size:1.05rem;font-weight:700;color:#7F8069;text-transform:uppercase;letter-spacing:1px;margin:0 28px}
-.marquee span.o{color:var(--taupe);font-weight:400;font-size:.55rem;vertical-align:middle}
+.marquee span.o{color:var(--taupe);font-weight:400;font-size:1rem;vertical-align:middle;opacity:.8}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ---------- sections ---------- */
@@ -601,3 +601,4 @@ img[src*="svc-insurance"]{object-position:50% 10%}
 .footer-card .foot-brand p{max-width:300px}
 .footer-card .foot-brand img{width:267px;max-width:100%;height:auto}
 .footer-card .foot-contact .ph-for{display:block;margin-top:3px;font-size:.78rem;letter-spacing:.02em;color:var(--taupe);opacity:.85}
+.page-hero h1 .hl{text-shadow:0 2px 22px rgba(20,28,24,.6)}
