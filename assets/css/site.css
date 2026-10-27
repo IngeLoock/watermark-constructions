@@ -586,7 +586,7 @@ img[src*="svc-insurance"]{object-position:50% 10%}
 /* headline highlight: brand palette only (olive on light, taupe on dark) */
 :root{--hl:var(--olive);--hl-dark:var(--taupe)}
 /* media hero: photo sits to the right so all four faces stay visible, text on brand green */
-.page-hero.hero-split{min-height:760px}
+.page-hero.hero-split{min-height:clamp(620px,80vh,780px)}
 .page-hero.hero-split .bg{background-size:cover;background-position:50% 22%;background-repeat:no-repeat;background-color:var(--green-dark)}
 .page-hero.hero-split .bg::after{background:linear-gradient(180deg,rgba(24,30,27,.45) 0%,rgba(24,30,27,0) 22%,rgba(24,30,27,0) 42%,rgba(24,30,27,.62) 70%,rgba(24,30,27,.86) 100%)}
 .page-hero.hero-split .inner-wide{align-self:flex-end;padding-bottom:64px}
@@ -623,3 +623,10 @@ img[src*="svc-insurance"]{object-position:50% 10%}
 br.br-d{display:none}
 @media(min-width:761px){br.br-d{display:inline}}
 .page-hero h1.wrap-h1 .lm .li{white-space:normal}
+
+/* Media and Case Studies banners share one height */
+@media(min-width:761px){.page-hero.hero-std{min-height:clamp(620px,80vh,780px)}}
+/* related case studies: lighter section, darker card frames */
+.section.rel-cs{background:var(--white)}
+.rel-cs .cs{background:var(--stone)}
+.rel-cs .cs .meta{border-top-color:rgba(43,64,51,.18)}
