@@ -846,10 +846,11 @@ nav.mobile-menu .mm-cta .mm-call{padding:15px 28px}
   body{padding-bottom:70px}
   body.menu-open .callbar{display:none}
   .page-hero{min-height:500px}
+}
 /* media hero on phones: full-bleed image like the other top banners */
 @media(max-width:760px){
   .page-hero.hero-split{min-height:520px!important;display:flex!important;align-items:flex-end}
-  .page-hero.hero-split .bg{inset:0!important;top:0!important;height:auto!important;background-size:cover!important;background-position:41% 40%!important;translate:none!important}
+  .page-hero.hero-split .bg{inset:-9% 0!important;top:-9%!important;height:auto!important;background-size:cover!important;background-position:41% 40%!important}
   .page-hero.hero-split .bg::after{background:linear-gradient(180deg,rgba(24,30,27,.5) 0%,rgba(24,30,27,0) 20%,rgba(24,30,27,0) 38%,rgba(24,30,27,.7) 66%,rgba(24,30,27,.92) 100%)!important}
   .page-hero.hero-split .inner-wide{padding-top:0!important;padding-bottom:40px!important;align-self:flex-end;width:100%}
 }
@@ -889,6 +890,11 @@ nav.mobile-menu .mm-cta .mm-call{padding:15px 28px}
 }
 .nw{white-space:nowrap}
 @media(max-width:370px){.mrow .fcard h3{font-size:1.15rem!important}}
+
+/* parallax: a little more room so the stronger drift never shows an edge */
+.page-hero > .bg{inset:-12% 0!important}
+.hero-card .hero-bg{inset:-12% 0!important}
+@media(max-width:760px){.page-hero.hero-split > .bg{inset:-9% 0!important}}
 </style>
 <div class="shell" id="main" style="position:relative">
 
@@ -1386,12 +1392,11 @@ document.addEventListener('click',e=>{if(!e.target.closest('.nav>ul>li.has-sub')
       if(r.bottom<-120||r.top>vh+120) return;
       var d=(r.top+r.height/2)-vh/2;
       if(it.mode==='t'){
-        if(small.matches&&host.classList.contains('hero-split')){it.el.style.translate='';return}
-        var max=r.height*0.07, y=Math.max(-max,Math.min(max,-d*0.09));
+        var over=Math.max(0,(it.el.offsetHeight-host.offsetHeight)/2-2), max=Math.min(r.height*0.11,over), y=Math.max(-max,Math.min(max,-d*0.2));
         it.el.style.translate='0 '+y.toFixed(1)+'px';
       }else{
         if(small.matches){it.el.style.backgroundPosition='';return}
-        var p=Math.max(0,Math.min(100,50+d/16));
+        var p=Math.max(0,Math.min(100,50+d/9));
         it.el.style.backgroundPosition='0 0, 50% '+p.toFixed(1)+'%';
       }
     });
@@ -1463,9 +1468,9 @@ document.addEventListener('click',e=>{if(!e.target.closest('.nav>ul>li.has-sub')
       r.scrollBy({left:next,behavior:'smooth'});
     }
     function pause(){hold=true;clearTimeout(resume)}
-    function later(){clearTimeout(resume);resume=setTimeout(function(){hold=false},6000)}
-    ['touchstart','pointerdown','wheel','mouseenter','focusin'].forEach(function(e){r.addEventListener(e,pause,{passive:true})});
-    ['touchend','touchcancel','pointerup','mouseleave','focusout'].forEach(function(e){r.addEventListener(e,later,{passive:true})});
+    function later(){clearTimeout(resume);resume=setTimeout(function(){hold=false},4000)}
+    ['touchstart','pointerdown'].forEach(function(e){r.addEventListener(e,pause,{passive:true})});
+    ['touchend','touchcancel','pointerup'].forEach(function(e){r.addEventListener(e,later,{passive:true})});
     if('IntersectionObserver' in window){new IntersectionObserver(function(es){visible=es[0].isIntersecting},{threshold:.5}).observe(r)}else{visible=true}
     setInterval(step,r.classList.contains('trust-row')?2600:4200);
   });

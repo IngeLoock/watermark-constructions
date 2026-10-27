@@ -908,10 +908,11 @@ nav.mobile-menu .mm-cta .mm-call{padding:15px 28px}
   body{padding-bottom:70px}
   body.menu-open .callbar{display:none}
   .page-hero{min-height:500px}
+}
 /* media hero on phones: full-bleed image like the other top banners */
 @media(max-width:760px){
   .page-hero.hero-split{min-height:520px!important;display:flex!important;align-items:flex-end}
-  .page-hero.hero-split .bg{inset:0!important;top:0!important;height:auto!important;background-size:cover!important;background-position:41% 40%!important;translate:none!important}
+  .page-hero.hero-split .bg{inset:-9% 0!important;top:-9%!important;height:auto!important;background-size:cover!important;background-position:41% 40%!important}
   .page-hero.hero-split .bg::after{background:linear-gradient(180deg,rgba(24,30,27,.5) 0%,rgba(24,30,27,0) 20%,rgba(24,30,27,0) 38%,rgba(24,30,27,.7) 66%,rgba(24,30,27,.92) 100%)!important}
   .page-hero.hero-split .inner-wide{padding-top:0!important;padding-bottom:40px!important;align-self:flex-end;width:100%}
 }
@@ -951,3 +952,8 @@ nav.mobile-menu .mm-cta .mm-call{padding:15px 28px}
 }
 .nw{white-space:nowrap}
 @media(max-width:370px){.mrow .fcard h3{font-size:1.15rem!important}}
+
+/* parallax: a little more room so the stronger drift never shows an edge */
+.page-hero > .bg{inset:-12% 0!important}
+.hero-card .hero-bg{inset:-12% 0!important}
+@media(max-width:760px){.page-hero.hero-split > .bg{inset:-9% 0!important}}
