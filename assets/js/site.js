@@ -81,3 +81,31 @@
     }));
   }
 })();
+/* hero body copy matches the width of the heading on desktop */
+(function(){
+  var hero=document.querySelector('.hero-match'); if(!hero) return;
+  var h=hero.querySelector('h1'), p=hero.querySelector('.inner-wide>p'); if(!h||!p) return;
+  function fit(){
+    if(window.innerWidth<1000){p.style.maxWidth='';return}
+    var w=0; h.querySelectorAll('.li').forEach(function(l){var r=document.createRange();r.selectNodeContents(l);var b=r.getBoundingClientRect();if(b.width>w)w=b.width});
+    if(w) p.style.maxWidth=Math.ceil(w)+'px';
+  }
+  fit(); window.addEventListener('resize',fit); window.addEventListener('load',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();
+/* page hero headings: shrink slightly (then wrap) rather than ever being cut off */
+(function(){
+  var hs=document.querySelectorAll('.page-hero h1'); if(!hs.length) return;
+  function clipped(h){var c=false;h.querySelectorAll('.lm').forEach(function(l){var li=l.querySelector('.li');if(li&&li.scrollWidth>l.clientWidth+1)c=true});return c}
+  function fit(){
+    hs.forEach(function(h){
+      h.style.fontSize='';h.classList.remove('wrap-h1');
+      if(!clipped(h)) return;
+      var base=parseFloat(getComputedStyle(h).fontSize),f=1;
+      while(clipped(h)&&f>0.74){f-=0.04;h.style.fontSize=(base*f)+'px'}
+      if(clipped(h)){h.style.fontSize='';h.classList.add('wrap-h1')}
+    });
+  }
+  fit(); window.addEventListener('load',fit); window.addEventListener('resize',fit);
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
+})();

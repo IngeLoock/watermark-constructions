@@ -118,6 +118,11 @@ header.scrolled .nav{padding:8px 40px}
 .nav ul a:hover{color:var(--stone)}
 .nav .pill{background:var(--olive);color:var(--white);padding:10px 20px;font-size:.88rem}
 .nav .pill:hover{background:var(--green)}
+.nav-phone{font-weight:600;font-size:.9rem;color:var(--stone);white-space:nowrap;letter-spacing:.2px;display:inline-flex;align-items:center;gap:8px}
+.nav-phone::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--olive);box-shadow:0 0 0 4px rgba(160,162,145,.22)}
+.nav-phone:hover{color:var(--white)}
+.nav .right{display:flex;align-items:center;gap:14px}
+@media(max-width:1180px){.nav ul{gap:20px}.nav ul a{font-size:.88rem}.nav-phone{font-size:.84rem;gap:6px}.nav .pill{padding:9px 16px}.nav .right{gap:10px}.nav{padding-left:28px;padding-right:28px}}
 
 /* hero - Medara-style full-bleed photo */
 .hero-card{border-radius:var(--radius);color:var(--white);position:relative;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;background:var(--green-dark)}
@@ -518,9 +523,11 @@ body.menu-open{overflow:hidden}
 /* headline highlight: brand palette only (olive on light, taupe on dark) */
 :root{--hl:var(--olive);--hl-dark:var(--taupe)}
 /* media hero: photo sits to the right so all four faces stay visible, text on brand green */
-.page-hero.hero-split{min-height:600px}
-.page-hero.hero-split .bg{background-size:auto 100%;background-position:right center;background-repeat:no-repeat;background-color:var(--green-dark)}
-.page-hero.hero-split .bg::after{background:linear-gradient(90deg,var(--green-dark) 0%,var(--green-dark) 36%,rgba(34,51,42,.55) 52%,rgba(34,51,42,0) 68%),linear-gradient(180deg,rgba(28,38,32,.35) 0%,rgba(28,38,32,0) 30%,rgba(28,38,32,.35) 100%)}
+.page-hero.hero-split{min-height:760px}
+.page-hero.hero-split .bg{background-size:cover;background-position:50% 22%;background-repeat:no-repeat;background-color:var(--green-dark)}
+.page-hero.hero-split .bg::after{background:linear-gradient(180deg,rgba(24,30,27,.45) 0%,rgba(24,30,27,0) 22%,rgba(24,30,27,0) 42%,rgba(24,30,27,.62) 70%,rgba(24,30,27,.86) 100%)}
+.page-hero.hero-split .inner-wide{align-self:flex-end;padding-bottom:64px}
+@media(min-width:1000px){.page-hero.hero-split h1{white-space:nowrap}}
 .page-hero.hero-split h1{font-size:clamp(2.4rem,4.2vw,3.7rem)}
 @media(max-width:760px){
   .page-hero.hero-split{min-height:0;display:block}
@@ -533,6 +540,26 @@ body.menu-open{overflow:hidden}
 .footer-card .foot-brand p{max-width:300px}
 .footer-card .foot-brand img{width:267px;max-width:100%;height:auto}
 .footer-card .foot-contact .ph-for{display:block;margin-top:3px;font-size:.78rem;letter-spacing:.02em;color:var(--taupe);opacity:.85}
+.page-hero h1 .hl{text-shadow:0 2px 22px rgba(20,28,24,.6)}
+/* batch 7: tighter grouped contact lines */
+.footer-card .foot-contact li{margin-bottom:18px;line-height:1.35}
+.footer-card .foot-contact .ph-for{margin-top:2px;font-size:.8rem;line-height:1.3;opacity:.8}
+.footer-card .foot-contact li:last-child{margin-bottom:0}
+/* batch 8: solid green service buttons, white on hover and click */
+.dbtn.solid{background:var(--green);color:var(--white);border:1px solid var(--green)}
+.dbtn.solid .arr{background:var(--olive)}
+.dbtn.solid:hover,.dbtn.solid:active,.dbtn.solid:focus-visible{background:var(--white);color:var(--green);border-color:var(--white)}
+.dbtn.solid:hover .arr,.dbtn.solid:active .arr,.dbtn.solid:focus-visible .arr{background:var(--green)}
+/* batch 9: stat cards never overflow */
+.scards{grid-template-columns:repeat(3,minmax(0,1fr))}
+.scards.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1180px){.scards.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1000px){.scards,.scards.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.scards,.scards.four{grid-template-columns:1fr}}
+.c-lines,.c-lines *{overflow-wrap:anywhere;min-width:0}
+br.br-d{display:none}
+@media(min-width:761px){br.br-d{display:inline}}
+.page-hero h1.wrap-h1 .lm .li{white-space:normal}
 </style>
 <div class="shell" id="main" style="position:relative">
 
@@ -679,7 +706,7 @@ body.menu-open{overflow:hidden}
   <section class="about-hero" id="about">
     <div class="about-inner">
       <div class="label" style="color:var(--stone)">About us</div>
-      <h2>Building what <span class="hl">matters,</span><br>to you.</h2>
+      <h2>Building what<br class="br-d"> <span class="hl">matters,</span> to you.</h2>
       <p class="about-sub">Exceptional building outcomes and services to over 65,000 Australian homes and businesses since 2000.</p>
       <a class="pill-hero about-link" href="who-we-are.html" style="margin-top:28px">Who We Are
         <span class="arr"><svg viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H4M12 2v8" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>
@@ -833,7 +860,7 @@ body.menu-open{overflow:hidden}
   <section class="areas" id="areas">
     <div class="inner">
       <div class="label" style="text-align:center">Service Areas</div>
-      <h2>One team across Queensland,<br>New South Wales and <span class="hl">Tasmania</span></h2>
+      <h2>One team across <span class="hl">Queensland,<br>New South Wales and Tasmania</span></h2>
       <p class="areas-sub">For 25 years, Watermark Constructions have successfully serviced Queensland and Tasmania, with offices from Cairns to Hobart.</p>
       <div class="area-pills">
         <a class="area-pill" href="coverage.html">Sunshine Coast</a>
@@ -910,8 +937,7 @@ body.menu-open{overflow:hidden}
         <li><a href="tel:1300377792">1300 377 792</a><small class="ph-for">24/7 claims &amp; emergency line</small></li>
         <li><a href="tel:0754377792">07 5437 7792</a><small class="ph-for">Head office, Sunshine Coast</small></li>
         <li><a href="mailto:admin@watermarkconstructions.com.au">admin@watermarkconstructions.com.au</a></li>
-        <li>4/29 Premier Cct, Warana QLD 4575</li>
-        <li>PO Box 799, Mooloolaba QLD 4557</li>
+        <li class="addr">4/29 Premier Cct, Warana QLD 4575<small class="ph-for">PO Box 799, Mooloolaba QLD 4557</small></li>
       </ul>
       <img class="foot-starlight" src="assets/img/logo-starlight.png" alt="Proudly supporting Starlight Children's Foundation">
     </div>
@@ -1011,6 +1037,6 @@ document.querySelectorAll('.nav>ul>li.has-sub>a').forEach(a=>{a.addEventListener
 document.addEventListener('click',e=>{if(!e.target.closest('.nav>ul>li.has-sub'))document.querySelectorAll('.nav>ul>li.open').forEach(x=>x.classList.remove('open'))});
 </script>
 
-<script src="assets/js/forms.js"></script>
+<script src="assets/js/forms.js?v=4eb3d9ac"></script>
 <div class="callbar"><a class="call" href="tel:1300377792">Call 1300 377 792</a><a class="enq" href="contact.html">Enquire</a></div>
 </body></html>
