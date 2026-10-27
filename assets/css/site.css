@@ -920,3 +920,13 @@ nav.mobile-menu .mm-cta .mm-call{padding:15px 28px}
   .page-hero.hero-split .bg{background-position:44% 30%!important}
   .page-hero.hero-split .inner-wide{padding-bottom:32px!important}
 }
+/* footer brand centred on phones */
+@media(max-width:760px){
+  .footer-card .foot-brand{text-align:center!important;display:flex;flex-direction:column;align-items:center}
+  .footer-card .foot-brand img{margin-left:auto!important;margin-right:auto!important}
+  .footer-card .foot-brand p{margin-left:auto!important;margin-right:auto!important;max-width:320px!important}
+}
+/* footer policy links on one line on phones */
+@media(max-width:760px){
+  .footer-card .foot-legal>span:last-child{white-space:nowrap;font-size:min(.7rem,calc((100vw - 48px) / 31.6))}
+}

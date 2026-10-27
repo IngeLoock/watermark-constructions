@@ -846,6 +846,28 @@ nav.mobile-menu .mm-cta .mm-call{padding:15px 28px}
   body{padding-bottom:70px}
   body.menu-open .callbar{display:none}
   .page-hero{min-height:500px}
+/* media hero on phones: full-bleed image like the other top banners */
+@media(max-width:760px){
+  .page-hero.hero-split{min-height:520px!important;display:flex!important;align-items:flex-end}
+  .page-hero.hero-split .bg{inset:0!important;top:0!important;height:auto!important;background-size:cover!important;background-position:41% 40%!important;translate:none!important}
+  .page-hero.hero-split .bg::after{background:linear-gradient(180deg,rgba(24,30,27,.5) 0%,rgba(24,30,27,0) 20%,rgba(24,30,27,0) 38%,rgba(24,30,27,.7) 66%,rgba(24,30,27,.92) 100%)!important}
+  .page-hero.hero-split .inner-wide{padding-top:0!important;padding-bottom:40px!important;align-self:flex-end;width:100%}
+}
+@media(max-width:760px){
+  .page-hero.hero-split{min-height:450px!important}
+  .page-hero.hero-split .bg{background-position:44% 30%!important}
+  .page-hero.hero-split .inner-wide{padding-bottom:32px!important}
+}
+/* footer brand centred on phones */
+@media(max-width:760px){
+  .footer-card .foot-brand{text-align:center!important;display:flex;flex-direction:column;align-items:center}
+  .footer-card .foot-brand img{margin-left:auto!important;margin-right:auto!important}
+  .footer-card .foot-brand p{margin-left:auto!important;margin-right:auto!important;max-width:320px!important}
+}
+/* footer policy links on one line on phones */
+@media(max-width:760px){
+  .footer-card .foot-legal>span:last-child{white-space:nowrap;font-size:min(.7rem,calc((100vw - 48px) / 31.6))}
+}
 </style>
 <div class="shell" id="main" style="position:relative">
 
