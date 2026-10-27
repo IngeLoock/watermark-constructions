@@ -930,3 +930,24 @@ nav.mobile-menu .mm-cta .mm-call{padding:15px 28px}
 @media(max-width:760px){
   .footer-card .foot-legal>span:last-child{white-space:nowrap;font-size:min(.7rem,calc((100vw - 48px) / 31.6))}
 }
+@media(max-width:760px){
+  .page-hero h1 .lm,.hero-center h1 .lm{display:inline!important;overflow:visible!important}
+  .page-hero h1 .lm .li,.hero-center h1 .lm .li{display:inline!important;white-space:normal!important;transform:none!important}
+  .page-hero h1 .lm+.lm::before,.hero-center h1 .lm+.lm::before{content:" "}
+}
+@media(max-width:760px){
+  /* all big headings flow as one paragraph on phones so lines can rebalance */
+  h1 .lm{display:inline!important;overflow:visible!important}
+  h1 .lm .li{display:inline!important;white-space:normal!important;transform:none!important}
+  h1 .lm+.lm::before{content:" "}
+  /* next case study cards: image on top, text underneath */
+  .next-grid{grid-template-columns:1fr!important;gap:14px!important}
+  .nextcs{flex-direction:column!important;align-items:stretch!important;gap:0!important;padding:0!important}
+  .nextcs img{width:100%!important;height:auto!important;aspect-ratio:2/1;border-radius:0!important}
+  .nextcs>div{padding:16px 20px 20px}
+  .nextcs h4{font-size:1.15rem!important;margin-top:6px}
+  /* values carousel card titles a touch smaller so they sit on one line */
+  .vals-track .vrow-card h3{font-size:1.3rem!important}
+}
+.nw{white-space:nowrap}
+@media(max-width:370px){.mrow .fcard h3{font-size:1.15rem!important}}
