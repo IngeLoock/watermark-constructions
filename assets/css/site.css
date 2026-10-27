@@ -861,3 +861,62 @@ nav.mobile-menu .mm-phone{font-size:1rem;gap:9px}
   .contact-full .bigform{margin-left:auto!important;margin-right:auto!important;width:100%}
   .contact-full .bigform button,.contact-full .fsubmit{width:100%}
 }
+/* phone-only line break */
+br.br-m{display:none}
+@media(max-width:760px){
+  br.br-m{display:inline}
+  .areas h2{font-size:clamp(1.45rem,6.6vw,1.75rem)!important}
+  .areas .area-pills{gap:7px!important;margin-top:24px!important}
+  .areas .area-pill{padding:7px 12px!important;font-size:.82rem!important}
+}
+@media(max-width:760px){
+  /* home hero: equal space above the heading and below the buttons */
+  .hero-card{min-height:0!important;align-items:flex-start!important}
+  .hero-center{padding:138px 24px 56px!important}
+  /* services heading: smaller sizing so "what" / "you need" break cleanly */
+  /* home case study cards: image on top, text underneath */
+  .case-mini{grid-template-columns:1fr!important;gap:14px!important;margin-top:28px!important}
+  .case-mini .mini{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;padding:0!important}
+  .case-mini .mini img{width:100%!important;height:auto!important;aspect-ratio:2/1;border-radius:0!important}
+  .case-mini .mini>div{padding:18px 20px 20px}
+  .case-mini .mini .idx{font-size:.72rem;letter-spacing:.14em}
+  .case-mini .mini h4{font-size:1.2rem!important;margin-top:6px}
+  .case-mini .mini p{margin-top:6px;font-size:.9rem!important;line-height:1.5}
+  /* areas heading: three lines on phones */
+  .areas h2{font-size:calc((100vw - 48px) / 14.9)!important;line-height:1.14}
+}
+@media(max-width:370px){.areas .area-pills{gap:6px!important}.areas .area-pill{padding:6px 10px!important;font-size:.78rem!important}}
+nav.mobile-menu .mm-cta .mm-call{padding:15px 28px}
+/* solid green buttons stay green on stone sections */
+.bg-stone .dbtn.solid{background:var(--green)!important;color:var(--white)!important}
+.bg-stone .dbtn.solid:hover,.bg-stone .dbtn.solid:active{background:var(--white)!important;color:var(--green)!important}
+/* footer: no dead green space under the legal lines; the page itself makes room for the call bar */
+@media(max-width:760px){
+  .footer-card .foot-bottom{padding-bottom:24px!important}
+  body{padding-bottom:calc(66px + env(safe-area-inset-bottom,0px))}
+  body.menu-open{padding-bottom:0}
+}
+
+/* call bar rules repeated here so the home page (which copies from batch 5 down) gets them too */
+.callbar{display:none}
+.map-wrap svg{display:block;width:100%;height:auto}
+@media(max-width:760px){
+  .callbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:48;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(28,38,32,.96);backdrop-filter:blur(8px);border-top:1px solid rgba(160,162,145,.25)}
+  .callbar a{display:flex;align-items:center;justify-content:center;gap:8px;height:46px;border-radius:999px;font-weight:600;font-size:.92rem}
+  .callbar .call{background:var(--stone);color:var(--green-dark)}
+  .callbar .enq{border:1px solid rgba(160,162,145,.55);color:var(--stone)}
+  body{padding-bottom:70px}
+  body.menu-open .callbar{display:none}
+  .page-hero{min-height:500px}
+/* media hero on phones: full-bleed image like the other top banners */
+@media(max-width:760px){
+  .page-hero.hero-split{min-height:520px!important;display:flex!important;align-items:flex-end}
+  .page-hero.hero-split .bg{inset:0!important;top:0!important;height:auto!important;background-size:cover!important;background-position:41% 40%!important;translate:none!important}
+  .page-hero.hero-split .bg::after{background:linear-gradient(180deg,rgba(24,30,27,.5) 0%,rgba(24,30,27,0) 20%,rgba(24,30,27,0) 38%,rgba(24,30,27,.7) 66%,rgba(24,30,27,.92) 100%)!important}
+  .page-hero.hero-split .inner-wide{padding-top:0!important;padding-bottom:40px!important;align-self:flex-end;width:100%}
+}
+@media(max-width:760px){
+  .page-hero.hero-split{min-height:450px!important}
+  .page-hero.hero-split .bg{background-position:44% 30%!important}
+  .page-hero.hero-split .inner-wide{padding-bottom:32px!important}
+}
