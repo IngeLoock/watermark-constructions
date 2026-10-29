@@ -957,3 +957,5 @@ nav.mobile-menu .mm-cta .mm-call{padding:15px 28px}
 .page-hero > .bg{inset:-12% 0!important}
 .hero-card .hero-bg{inset:-12% 0!important}
 @media(max-width:760px){.page-hero.hero-split > .bg{inset:-9% 0!important}}
+/* integrity card photo: keep faces in frame */
+.vrow-card img[src*="val-integrity-team"]{object-position:50% 24%}
